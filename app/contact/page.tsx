@@ -25,14 +25,14 @@ export default function Contact() {
     <div className="relative pb-16">
       <Navigation />
       <Particles
-        className="absolute inset-0 -z-10 !animate-fade-in"
+        className="absolute inset-0 -z-10 animate-fade-in"
         quantity={150}
         staticity={20}
         ease={20}
         refresh={true}
       />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0 !animate-fade-in">
+        <div className="max-w-2xl mx-auto lg:mx-0 animate-fade-in">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl glow-text">
             Connect With Me
           </h2>
@@ -41,12 +41,12 @@ export default function Contact() {
             or download my resume for more details.
           </p>
         </div>
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
         {/* Contact Information */}
         <div className="grid md:grid-cols-2 gap-8">
           <Card>
-            <div className="p-6 !animate-fade-in contact-card">
+            <div className="p-6 animate-fade-in contact-card">
               <h3 className="text-xl font-bold mb-6 text-zinc-100 glow-text">Contact Information</h3>
               
               <div className="space-y-6">
@@ -115,7 +115,7 @@ export default function Contact() {
           </Card>
           {/* Resume Download Section */}
           <Card>
-            <div className="p-6 !animate-fade-in contact-card" style={{ animationDelay: "200ms" }}>
+            <div className="p-6 animate-fade-in contact-card" style={{ animationDelay: "200ms" }}>
               <h3 className="text-xl font-bold mb-6 text-zinc-100 flex items-center gap-2 glow-text">
                 <FileText className="w-5 h-5" />
                 Resume
@@ -145,9 +145,9 @@ export default function Contact() {
           </Card>
         </div>
         {/* Key Skills Section */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        <section className="!animate-fade-in" style={{ animationDelay: "400ms" }}>
+        <section className="animate-fade-in" style={{ animationDelay: "400ms" }}>
           <h3 className="text-2xl font-bold mb-6 text-zinc-100 glow-text">Key Skills & Experience</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <Card>
@@ -184,9 +184,9 @@ export default function Contact() {
           </div>
         </section>
         {/* Notable Experience */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        <section className="!animate-fade-in" style={{ animationDelay: "600ms" }}>
+        <section className="animate-fade-in" style={{ animationDelay: "600ms" }}>
           <Card>
             <div className="p-6 contact-card">
               <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Notable Experience</h3>
@@ -201,9 +201,9 @@ export default function Contact() {
         </section>
         
         {/* Get in Touch */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        <section className="!animate-fade-in" style={{ animationDelay: "800ms" }}>
+        <section className="animate-fade-in" style={{ animationDelay: "800ms" }}>
           <Card>
             <div className="p-6 contact-card">
               <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Get In Touch</h3>
@@ -222,7 +222,7 @@ export default function Contact() {
         </section>
 
         {/* Contact Form */}
-        <section className="!animate-fade-in" style={{ animationDelay: "1000ms" }}>
+        <section className="animate-fade-in" style={{ animationDelay: "1000ms" }}>
           <Card>
             <div className="p-6 contact-card">
               <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Contact Form</h3>

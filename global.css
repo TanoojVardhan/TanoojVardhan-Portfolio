@@ -7,7 +7,7 @@
     -webkit-text-stroke: 1px rgba(255,255,255,0.3);
   }
 }
-
+/* 
 @layer utilities {
   .animate-fade-in {
     animation: fade-in 0.8s ease-in-out forwards;
@@ -80,4 +80,4 @@
     }
   }
 }
-
+ */

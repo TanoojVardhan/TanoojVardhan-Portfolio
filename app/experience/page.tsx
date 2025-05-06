@@ -102,14 +102,14 @@ export default function Experience() {
     <div className="relative pb-16">
       <Navigation />
       <Particles
-        className="absolute inset-0 -z-10 !animate-fade-in"
+        className="absolute inset-0 -z-10 animate-fade-in"
         quantity={150}
         staticity={20}
         ease={20}
         refresh={true}
       />
       <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
-        <div className="max-w-2xl mx-auto lg:mx-0 !animate-fade-in">
+        <div className="max-w-2xl mx-auto lg:mx-0 animate-fade-in">
           <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
             Experience & Skills
           </h2>
@@ -117,7 +117,7 @@ export default function Experience() {
             My professional background and leadership journey.
           </p>
         </div>
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         {/* Education section */}
         <section>
@@ -137,7 +137,7 @@ export default function Experience() {
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
           {/* Featured Professional Experience */}
           <Card>
-            <article className="relative w-full h-full p-4 md:p-8 !animate-fade-in">
+            <article className="relative w-full h-full p-4 md:p-8 animate-fade-in">
               <div className="flex items-center justify-between gap-2">
                 <div className="text-xs text-zinc-100">
                   <span>Featured Experience</span>
@@ -162,7 +162,7 @@ export default function Experience() {
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
             {[top2, top3].map((exp, idx) => (
               <Card key={idx}>
-                <article className="relative w-full h-full p-4 md:p-8 !animate-fade-in" style={{ animationDelay: `${(idx + 1) * 200}ms` }}>
+                <article className="relative w-full h-full p-4 md:p-8 animate-fade-in" style={{ animationDelay: `${(idx + 1) * 200}ms` }}>
                   <div className="flex justify-between items-center">
                     <h2 className="mt-2 text-xl font-bold text-zinc-100 group-hover:text-white">
                       {exp.title}
@@ -183,7 +183,7 @@ export default function Experience() {
         </div>
 
         {/* Additional Professional Experience */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         <section>
           <h2 className="text-2xl font-bold mb-6 text-zinc-100">Additional Professional Experience</h2>
           <div className="grid grid-cols-1 gap-4">
@@ -208,9 +208,9 @@ export default function Experience() {
         </section>
 
         {/* Remaining College Experiences */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 !animate-fade-in" style={{ animationDelay: "600ms" }}>
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 animate-fade-in" style={{ animationDelay: "600ms" }}>
           {remaining.map((exp, idx) => (
             <Card key={idx}>
               <article className="relative w-full h-full p-4 md:p-8">
@@ -231,9 +231,9 @@ export default function Experience() {
         </div>
 
         {/* Skills section */}
-        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 !animate-fade-in" style={{ animationDelay: "800ms" }}>
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 animate-fade-in" style={{ animationDelay: "800ms" }}>
           <Card>
             <article className="p-4 md:p-8">
               <h2 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Technical Skills</h2>
