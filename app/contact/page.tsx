@@ -56,8 +56,16 @@ export default function Contact() {
     }
   };
 
-  // For debugging form inputs
-  console.log("Form data:", formData);
+  const downloadFile = (fileUrl: string, fileName: string) => {
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = fileUrl;
+    iframe.onload = function() {
+      document.body.removeChild(iframe);
+    };
+    document.body.appendChild(iframe);
+    window.open(fileUrl, '_blank');
+  };
 
   return (
     <div className="relative pb-16">
@@ -81,7 +89,40 @@ export default function Contact() {
         </div>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        {/* Contact Information */}
+        <div className="relative z-20 animate-fade-in">
+          <Card>
+            <div className="p-6 contact-card flex flex-col md:flex-row items-center justify-between gap-6">
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-zinc-100 flex items-center gap-2 glow-text">
+                  <FileText className="w-5 h-5" />
+                  My Documents
+                </h3>
+                <p className="text-zinc-400 mb-0 md:mb-0 max-w-lg">
+                  Download my resume and cover letter to learn more about my education, skills, and experience.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-4 w-full md:w-auto">
+                <div 
+                  onClick={() => downloadFile('/Tanooj_Resume.pdf', 'Tanooj_Vardhan_Resume.pdf')}
+                  className="w-full md:w-auto flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-8 rounded-lg transition-colors group hover-lift cursor-pointer border border-zinc-700"
+                  style={{ zIndex: 50 }}
+                >
+                  <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+                  <span className="font-medium">Resume (PDF)</span>
+                </div>
+                <div 
+                  onClick={() => downloadFile('/Tanooj_Cover Letter.pdf', 'Tanooj_Vardhan_Cover_Letter.pdf')}
+                  className="w-full md:w-auto flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-8 rounded-lg transition-colors group hover-lift cursor-pointer border border-zinc-700"
+                  style={{ zIndex: 50 }}
+                >
+                  <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform duration-300" />
+                  <span className="font-medium">Cover Letter (PDF)</span>
+                </div>
+              </div>
+            </div>
+          </Card>
+        </div>
+        
         <div className="grid md:grid-cols-2 gap-8">
           <Card>
             <div className="p-6 animate-fade-in contact-card">
@@ -151,77 +192,49 @@ export default function Contact() {
               </div>
             </div>
           </Card>
-          {/* Resume Download Section */}
+          
           <Card>
             <div className="p-6 animate-fade-in contact-card" style={{ animationDelay: "200ms" }}>
-              <h3 className="text-xl font-bold mb-6 text-zinc-100 flex items-center gap-2 glow-text">
-                <FileText className="w-5 h-5" />
-                Resume
-              </h3>
-              <p className="text-zinc-400 mb-6">
-                Download my resume to learn more about my education, skills, and experience in operations, logistics, and event management.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a
-                  href="/resume-tanooj-vardhan.pdf"
-                  download
-                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-4 rounded-lg transition-colors group hover-lift"
-                >
-                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
-                  Resume (PDF)
-                </a>
-                <a
-                  href="/cv-tanooj-vardhan.pdf"
-                  download
-                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-4 rounded-lg transition-colors group hover-lift"
-                >
-                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
-                  CV (PDF)
-                </a>
+              <h4 className="text-xl font-bold mb-6 text-zinc-100">Technical Skills</h4>
+              <div className="flex flex-wrap gap-2">
+                {["React JS", "Next JS", "HTML", "CSS", "Python", "Java", "JavaScript", "C", "Git", "Tailwind CSS", "Node.js", "MongoDB"].map((skill, i) => (
+                  <span key={i} className="px-3 py-2 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
+                    {skill}
+                  </span>
+                ))}
               </div>
             </div>
           </Card>
         </div>
-        {/* Key Skills Section */}
+        
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
         <section className="animate-fade-in" style={{ animationDelay: "400ms" }}>
-          <h3 className="text-2xl font-bold mb-6 text-zinc-100 glow-text">Key Skills & Experience</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card>
-              <div className="p-6 contact-card">
-                <h4 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Technical Skills</h4>
-                <div className="flex flex-wrap gap-2">
-                  {["React JS", "Next JS", "HTML", "CSS", "Python", "Java", "JavaScript", "C"].map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+          <h3 className="text-2xl font-bold mb-6 text-zinc-100 glow-text">Core Competencies</h3>
+          <Card>
+            <div className="p-6 contact-card">
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Team Leadership",
+                  "Operations Planning",
+                  "Event Management",
+                  "Problem Solving",
+                  "Documentation",
+                  "Financial Planning",
+                  "Strategic Thinking",
+                  "Project Management",
+                  "Resource Allocation",
+                  "Communication Skills"
+                ].map((skill, i) => (
+                  <span key={i} className="px-3 py-2 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
+                    {skill}
+                  </span>
+                ))}
               </div>
-            </Card>
-            <Card>
-              <div className="p-6 contact-card">
-                <h4 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Core Competencies</h4>
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    "Team Leadership",
-                    "Operations Planning",
-                    "Event Management",
-                    "Problem Solving",
-                    "Documentation",
-                    "Financial Planning",
-                  ].map((skill, i) => (
-                    <span key={i} className="px-3 py-1 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </Card>
-          </div>
+            </div>
+          </Card>
         </section>
-        {/* Notable Experience */}
+        
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
         <section className="animate-fade-in" style={{ animationDelay: "600ms" }}>
@@ -238,7 +251,6 @@ export default function Contact() {
           </Card>
         </section>
         
-        {/* Get in Touch */}
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
         <section className="animate-fade-in" style={{ animationDelay: "800ms" }}>
@@ -258,7 +270,7 @@ export default function Contact() {
             </div>
           </Card>
         </section>
-        {/* Contact Form */}
+        
         <section className="animate-fade-in" style={{ animationDelay: "1000ms" }}>
           <Card>
             <div className="p-6 contact-card">
