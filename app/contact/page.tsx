@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Navigation } from "@/components/nav";
 import { Card } from "@/components/card";
 import Particles from "@/components/particles";
@@ -9,17 +9,55 @@ import "./contact.css";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Add your form submission logic here
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: "success",
+          message: "Thank you! Your message has been sent successfully."
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Something went wrong. Please try again later."
+        });
+      }
+    } catch (error) {
+      setStatus({
+        type: "error",
+        message: "An error occurred. Please try again later."
+      });
+      console.error("Error submitting form:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  // For debugging form inputs
+  console.log("Form data:", formData);
 
   return (
     <div className="relative pb-16">
@@ -220,15 +258,25 @@ export default function Contact() {
             </div>
           </Card>
         </section>
-
         {/* Contact Form */}
         <section className="animate-fade-in" style={{ animationDelay: "1000ms" }}>
           <Card>
             <div className="p-6 contact-card">
               <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Contact Form</h3>
               <form onSubmit={handleSubmit} className="space-y-4">
+                {status.message && (
+                  <div 
+                    className={`p-4 rounded-md ${
+                      status.type === "success" 
+                        ? "bg-green-600/20 text-green-300 border border-green-600/30" 
+                        : "bg-red-600/20 text-red-300 border border-red-600/30"
+                    }`}
+                  >
+                    {status.message}
+                  </div>
+                )}
                 <div className="hover-lift transition-all duration-300">
-                  <label htmlFor="name" className="block text-zinc-400">Name</label>
+                  <label htmlFor="name" className="block text-zinc-400 mb-1">Name</label>
                   <input
                     type="text"
                     id="name"
@@ -236,11 +284,14 @@ export default function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                    autoComplete="name"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
+                    style={{ zIndex: 10, position: 'relative' }}
+                    required
                   />
                 </div>
                 <div className="hover-lift transition-all duration-300">
-                  <label htmlFor="email" className="block text-zinc-400">Email</label>
+                  <label htmlFor="email" className="block text-zinc-400 mb-1">Email</label>
                   <input
                     type="email"
                     id="email"
@@ -248,11 +299,14 @@ export default function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Your email"
-                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                    autoComplete="email"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
+                    style={{ zIndex: 10, position: 'relative' }}
+                    required
                   />
                 </div>
                 <div className="hover-lift transition-all duration-300">
-                  <label htmlFor="subject" className="block text-zinc-400">Subject</label>
+                  <label htmlFor="subject" className="block text-zinc-400 mb-1">Subject</label>
                   <input
                     type="text"
                     id="subject"
@@ -260,27 +314,41 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Subject of your message"
-                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                    autoComplete="off"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
+                    style={{ zIndex: 10, position: 'relative' }}
+                    required
                   />
                 </div>
                 <div className="hover-lift transition-all duration-300">
-                  <label htmlFor="message" className="block text-zinc-400">Message</label>
+                  <label htmlFor="message" className="block text-zinc-400 mb-1">Message</label>
                   <textarea
                     id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Your message"
-                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
-                    rows="4"
+                    autoComplete="off"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md border border-zinc-700 focus:outline-none focus:ring-2 focus:ring-zinc-500 focus:border-transparent"
+                    style={{ zIndex: 10, position: 'relative' }}
+                    rows={4}
+                    required
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-6 rounded-lg transition-colors group hover-lift"
+                  disabled={isSubmitting}
+                  className={`flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-6 rounded-lg transition-colors group hover-lift ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  style={{ zIndex: 10, position: 'relative' }}
                 >
-                  <span>Send Message</span>
-                  <span className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
+                  {isSubmitting ? (
+                    <span>Sending...</span>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <span className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
+                    </>
+                  )}
                 </button>
               </form>
             </div>
