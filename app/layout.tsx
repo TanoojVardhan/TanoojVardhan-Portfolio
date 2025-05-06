@@ -1,24 +1,24 @@
 import "../global.css";
-import { Inter } from "@next/font/google";
-import LocalFont from "@next/font/local";
+import { Inter } from "next/font/google";
+import LocalFont from "next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "./components/analytics";
+import { Analytics } from "@/components/analytics";
 
 export const metadata: Metadata = {
   title: {
-    default: "chronark.com",
-    template: "%s | chronark.com",
+    default: "Tanooj Portfolio",
+    template: "%s | Tanooj Portfolio",
   },
-  description: "Co-founder of unkey.dev and founder of planetfall.io",
+  description: "Personal portfolio of Tanooj Vardhan - AI & ML graduate seeking opportunities in operations and technology",
   openGraph: {
-    title: "chronark.com",
+    title: "Tanooj Portfolio",
     description:
-      "Co-founder of unkey.dev and founder of planetfall.io",
-    url: "https://chronark.com",
-    siteName: "chronark.com",
+      "Personal portfolio of Tanooj Vardhan - AI & ML graduate seeking opportunities in operations and technology",
+    url: "https://tanoojvardhan.com",
+    siteName: "Tanooj Portfolio",
     images: [
       {
-        url: "https://chronark.com/og.png",
+        url: "https://chronark.com/og.png", // You may want to update this image path later
         width: 1920,
         height: 1080,
       },
@@ -38,13 +38,18 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: "Chronark",
+    title: "Tanooj Vardhan",
     card: "summary_large_image",
   },
   icons: {
-    shortcut: "/favicon.png",
+    shortcut: "/tanooj-logo.svg", // Using the SVG as shortcut icon
+    icon: [
+      { url: "/tanooj-logo.svg", type: "image/svg+xml" },
+      { url: "/Tanooj Logo.png", type: "image/png" }
+    ],
   },
 };
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -64,6 +69,8 @@ export default function RootLayout({
     <html lang="en" className={[inter.variable, calSans.variable].join(" ")}>
       <head>
         <Analytics />
+        <link rel="icon" href="/tanooj-logo.svg" type="image/svg+xml" />
+        <link rel="alternate icon" href="/Tanooj Logo.png" type="image/png" />
       </head>
       <body
         className={`bg-black ${process.env.NODE_ENV === "development" ? "debug-screens" : undefined

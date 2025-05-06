@@ -6,5 +6,78 @@
   .text-edge-outline {
     -webkit-text-stroke: 1px rgba(255,255,255,0.3);
   }
-} 
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-in-out forwards;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-fade-left {
+    animation: fade-left 1s ease-in-out forwards;
+  }
+
+  .animate-fade-right {
+    animation: fade-right 1s ease-in-out forwards;
+  }
+
+  .animate-title {
+    animation: title 1s ease-out forwards;
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes glow {
+    0% {
+      opacity: 0.4;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes fade-left {
+    0% {
+      transform: translateX(-70px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-right {
+    0% {
+      transform: translateX(70px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes title {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
 

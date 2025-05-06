@@ -1,63 +1,292 @@
 "use client";
-import { Github, Mail, Twitter } from "lucide-react";
-import Link from "next/link";
-import { Navigation } from "../components/nav";
-import { Card } from "../components/card";
 
-const socials = [
-	{
-		icon: <Twitter size={20} />,
-		href: "https://twitter.com/chronark_",
-		label: "Twitter",
-		handle: "@chronark_",
-	},
-	{
-		icon: <Mail size={20} />,
-		href: "mailto:dev@chronark.com",
-		label: "Email",
-		handle: "dev@chronark.com",
-	},
-	{
-		icon: <Github size={20} />,
-		href: "https://github.com/chronark",
-		label: "Github",
-		handle: "chronark",
-	},
-];
+import React, { useState } from "react";
+import { Navigation } from "@/components/nav";
+import { Card } from "@/components/card";
+import Particles from "@/components/particles";
+import { Github, Linkedin, Mail, Phone, MapPin, FileText, Download } from "lucide-react";
+import "./contact.css";
 
-export default function Example() {
-	return (
-		<div className=" bg-gradient-to-tl from-zinc-900/0 via-zinc-900 to-zinc-900/0">
-			<Navigation />
-			<div className="container flex items-center justify-center min-h-screen px-4 mx-auto">
-				<div className="grid w-full grid-cols-1 gap-8 mx-auto mt-32 sm:mt-0 sm:grid-cols-3 lg:gap-16">
-					{socials.map((s) => (
-						<Card>
-							<Link
-								href={s.href}
-								target="_blank"
-								className="p-4 relative flex flex-col items-center gap-4 duration-700 group md:gap-8 md:py-24  lg:pb-48  md:p-16"
-							>
-								<span
-									className="absolute w-px h-2/3 bg-gradient-to-b from-zinc-500 via-zinc-500/50 to-transparent"
-									aria-hidden="true"
-								/>
-								<span className="relative z-10 flex items-center justify-center w-12 h-12 text-sm duration-1000 border rounded-full text-zinc-200 group-hover:text-white group-hover:bg-zinc-900 border-zinc-500 bg-zinc-900 group-hover:border-zinc-200 drop-shadow-orange">
-									{s.icon}
-								</span>{" "}
-								<div className="z-10 flex flex-col items-center">
-									<span className="lg:text-xl font-medium duration-150 xl:text-3xl text-zinc-200 group-hover:text-white font-display">
-										{s.handle}
-									</span>
-									<span className="mt-4 text-sm text-center duration-1000 text-zinc-400 group-hover:text-zinc-200">
-										{s.label}
-									</span>
-								</div>
-							</Link>
-						</Card>
-					))}
-				</div>
-			</div>
-		</div>
-	);
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form submitted:", formData);
+    // Add your form submission logic here
+  };
+
+  return (
+    <div className="relative pb-16">
+      <Navigation />
+      <Particles
+        className="absolute inset-0 -z-10 !animate-fade-in"
+        quantity={150}
+        staticity={20}
+        ease={20}
+        refresh={true}
+      />
+      <div className="px-6 pt-20 mx-auto space-y-8 max-w-7xl lg:px-8 md:space-y-16 md:pt-24 lg:pt-32">
+        <div className="max-w-2xl mx-auto lg:mx-0 !animate-fade-in">
+          <h2 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl glow-text">
+            Connect With Me
+          </h2>
+          <p className="mt-4 text-zinc-400">
+            Recent B.Tech graduate in AI & ML seeking opportunities in operations and technology. Feel free to reach out
+            or download my resume for more details.
+          </p>
+        </div>
+        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        
+        {/* Contact Information */}
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card>
+            <div className="p-6 !animate-fade-in contact-card">
+              <h3 className="text-xl font-bold mb-6 text-zinc-100 glow-text">Contact Information</h3>
+              
+              <div className="space-y-6">
+                <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
+                  <Mail className="w-5 h-5 text-zinc-400" />
+                  <div>
+                    <p className="text-zinc-400 text-sm">Email</p>
+                    <a
+                      href="mailto:tanoojvardhanstudent@gmail.com"
+                      className="text-zinc-100 hover:text-white transition-colors"
+                    >
+                      tanoojvardhanstudent@gmail.com
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
+                  <Phone className="w-5 h-5 text-zinc-400" />
+                  <div>
+                    <p className="text-zinc-400 text-sm">Phone</p>
+                    <a href="tel:+919849577705" className="text-zinc-100 hover:text-white transition-colors">
+                      +91 98495 77705
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
+                  <Linkedin className="w-5 h-5 text-zinc-400" />
+                  <div>
+                    <p className="text-zinc-400 text-sm">LinkedIn</p>
+                    <a
+                      href="https://linkedin.com/in/tanoojvardhan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-100 hover:text-white transition-colors"
+                    >
+                      linkedin.com/in/tanoojvardhan
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
+                  <Github className="w-5 h-5 text-zinc-400" />
+                  <div>
+                    <p className="text-zinc-400 text-sm">GitHub</p>
+                    <a
+                      href="https://github.com/tanoojvardhan"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-zinc-100 hover:text-white transition-colors"
+                    >
+                      github.com/tanoojvardhan
+                    </a>
+                  </div>
+                </div>
+                
+                <div className="flex items-center gap-3 hover:translate-x-1 transition-transform duration-300">
+                  <MapPin className="w-5 h-5 text-zinc-400" />
+                  <div>
+                    <p className="text-zinc-400 text-sm">Location</p>
+                    <p className="text-zinc-100">Visakhapatnam, India</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+          {/* Resume Download Section */}
+          <Card>
+            <div className="p-6 !animate-fade-in contact-card" style={{ animationDelay: "200ms" }}>
+              <h3 className="text-xl font-bold mb-6 text-zinc-100 flex items-center gap-2 glow-text">
+                <FileText className="w-5 h-5" />
+                Resume
+              </h3>
+              <p className="text-zinc-400 mb-6">
+                Download my resume to learn more about my education, skills, and experience in operations, logistics, and event management.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <a
+                  href="/resume-tanooj-vardhan.pdf"
+                  download
+                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-4 rounded-lg transition-colors group hover-lift"
+                >
+                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+                  Resume (PDF)
+                </a>
+                <a
+                  href="/cv-tanooj-vardhan.pdf"
+                  download
+                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-4 rounded-lg transition-colors group hover-lift"
+                >
+                  <Download className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-300" />
+                  CV (PDF)
+                </a>
+              </div>
+            </div>
+          </Card>
+        </div>
+        {/* Key Skills Section */}
+        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        
+        <section className="!animate-fade-in" style={{ animationDelay: "400ms" }}>
+          <h3 className="text-2xl font-bold mb-6 text-zinc-100 glow-text">Key Skills & Experience</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card>
+              <div className="p-6 contact-card">
+                <h4 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Technical Skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {["React JS", "Next JS", "HTML", "CSS", "Python", "Java", "JavaScript", "C"].map((skill, i) => (
+                    <span key={i} className="px-3 py-1 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+            <Card>
+              <div className="p-6 contact-card">
+                <h4 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Core Competencies</h4>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Team Leadership",
+                    "Operations Planning",
+                    "Event Management",
+                    "Problem Solving",
+                    "Documentation",
+                    "Financial Planning",
+                  ].map((skill, i) => (
+                    <span key={i} className="px-3 py-1 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+        {/* Notable Experience */}
+        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        
+        <section className="!animate-fade-in" style={{ animationDelay: "600ms" }}>
+          <Card>
+            <div className="p-6 contact-card">
+              <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Notable Experience</h3>
+              <ul className="list-disc pl-5 text-zinc-400 space-y-3">
+                <li className="duration-150 group-hover:text-zinc-300">Led inventory and logistics operations with a team of 20+ members for Shore Fest 2023</li>
+                <li className="duration-150 group-hover:text-zinc-300">Managed operations across five sub-domains as Operations Manager at GStudio Club</li>
+                <li className="duration-150 group-hover:text-zinc-300">Developed an E-Commerce platform with AI chatbot integration during summer internship</li>
+                <li className="duration-150 group-hover:text-zinc-300">Created a Video Summarization project using CNN (to be published in IEEE conference)</li>
+              </ul>
+            </div>
+          </Card>
+        </section>
+        
+        {/* Get in Touch */}
+        <div className="hidden w-screen h-px !animate-glow md:block !animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        
+        <section className="!animate-fade-in" style={{ animationDelay: "800ms" }}>
+          <Card>
+            <div className="p-6 contact-card">
+              <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Get In Touch</h3>
+              <p className="text-zinc-400 mb-4 duration-150 group-hover:text-zinc-300">
+                I'm currently looking for new opportunities in operations and technology. If you'd like to connect or have any questions, feel free to reach out through any of the channels above.
+              </p>
+              <a
+                href="mailto:tanoojvardhanstudent@gmail.com"
+                className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-6 rounded-lg transition-colors group hover-lift"
+              >
+                <Mail className="w-4 h-4" />
+                Email Me <span className="ml-1 invisible group-hover:visible group-hover:translate-x-1 transition-transform" aria-hidden="true">→</span>
+              </a>
+            </div>
+          </Card>
+        </section>
+
+        {/* Contact Form */}
+        <section className="!animate-fade-in" style={{ animationDelay: "1000ms" }}>
+          <Card>
+            <div className="p-6 contact-card">
+              <h3 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">Contact Form</h3>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="hover-lift transition-all duration-300">
+                  <label htmlFor="name" className="block text-zinc-400">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Your name"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                  />
+                </div>
+                <div className="hover-lift transition-all duration-300">
+                  <label htmlFor="email" className="block text-zinc-400">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Your email"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                  />
+                </div>
+                <div className="hover-lift transition-all duration-300">
+                  <label htmlFor="subject" className="block text-zinc-400">Subject</label>
+                  <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Subject of your message"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                  />
+                </div>
+                <div className="hover-lift transition-all duration-300">
+                  <label htmlFor="message" className="block text-zinc-400">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Your message"
+                    className="w-full px-4 py-2 bg-zinc-800 text-zinc-100 rounded-md focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="flex items-center justify-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-6 rounded-lg transition-colors group hover-lift"
+                >
+                  <span>Send Message</span>
+                  <span className="ml-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all">→</span>
+                </button>
+              </form>
+            </div>
+          </Card>
+        </section>
+      </div>
+    </div>
+  );
 }
