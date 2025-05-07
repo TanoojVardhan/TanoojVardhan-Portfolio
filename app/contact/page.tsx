@@ -206,7 +206,7 @@ export default function Contact() {
           </Card>
 
           <Card>
-            <div className="p-6 contact-card flex flex-col md:flex-col items-center justify-between gap-6">
+            <div className="p-6 contact-card no-hover-shadow flex flex-col md:flex-col items-center justify-between gap-6">
               <div>
                 <h3 className="text-xl font-bold mb-3 text-zinc-100 flex items-center gap-2 glow-text">
                   {/* <FileText className="w-5 h-5" /> */}
@@ -217,7 +217,7 @@ export default function Contact() {
                   education, skills, and experience.
                 </p>
               </div>
-              <div className="flex flex-col gap-6 w-full md:w-auto">
+              <div className="flex flex-col gap-6 md:w-auto">
                 <a
                   href="/Tanooj_Resume.pdf"
                   download="Tanooj_Vardhan_Resume.pdf"
