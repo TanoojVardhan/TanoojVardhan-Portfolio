@@ -90,41 +90,7 @@ export default function Contact() {
         </div>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-        <div className="relative z-20 animate-fade-in">
-          <Card>
-            <div
-              className="p-6 animate-fade-in contact-card"
-              style={{ animationDelay: "200ms" }}
-            >
-              <h4 className="text-xl font-bold mb-6 text-zinc-100">
-                Technical Skills
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {[
-                  "React JS",
-                  "Next JS",
-                  "HTML",
-                  "CSS",
-                  "Python",
-                  "Java",
-                  "JavaScript",
-                  "C",
-                  "Git",
-                  "Tailwind CSS",
-                  "Node.js",
-                  "MongoDB",
-                ].map((skill, i) => (
-                  <span
-                    key={i}
-                    className="px-3 py-2 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </Card>
-        </div>
+        
 
         <div className="grid md:grid-cols-2 gap-8">
           <Card>
@@ -245,17 +211,54 @@ export default function Contact() {
           </Card>
         </div>
 
+<div className="relative z-20 animate-fade-in">
+          <Card>
+            <div
+              className="p-6 animate-fade-in contact-card"
+              style={{ animationDelay: "200ms" }}
+            >
+              <h4 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">
+                Technical Skills
+              </h4>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "React JS",
+                  "Next JS",
+                  "HTML",
+                  "CSS",
+                  "Python",
+                  "Java",
+                  "JavaScript",
+                  "C",
+                  "Git",
+                  "Tailwind CSS",
+                  "Node.js",
+                  "MongoDB",
+                ].map((skill, i) => (
+                  <span
+                    key={i}
+                    className="px-3 py-2 bg-zinc-800/40 rounded-full text-sm text-zinc-300 hover:text-zinc-50 transition-colors hover-lift"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </Card>
+        </div>
+
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         <section
           className="animate-fade-in"
           style={{ animationDelay: "400ms" }}
         >
-          <h3 className="text-2xl font-bold mb-6 text-zinc-100 glow-text">
-            Core Competencies
-          </h3>
+          
           <Card>
             <div className="p-6 contact-card">
+            <h4 className="text-xl font-bold mb-6 text-zinc-100 group-hover:text-white glow-text">
+            Core Competencies
+          </h4>
               <div className="flex flex-wrap gap-2">
                 {[
                   "Team Leadership",
@@ -330,7 +333,7 @@ export default function Contact() {
                 technology. If you'd like to connect or have any questions, feel
                 free to reach out through any of the channels above.
               </p>
-              <a
+              {/* <a
                 href="mailto:tanoojvardhanstudent@gmail.com"
                 className="inline-flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 py-3 px-6 rounded-lg transition-colors group hover-lift"
               >
@@ -342,7 +345,7 @@ export default function Contact() {
                 >
                   →
                 </span>
-              </a>
+              </a> */}
             </div>
           </Card>
         </section>
