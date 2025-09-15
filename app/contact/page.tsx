@@ -83,9 +83,8 @@ export default function Contact() {
             Connect With Me
           </h2>
           <p className="mt-4 text-zinc-400">
-            Recent B.Tech graduate in AI & ML seeking opportunities in
-            operations and technology. Feel free to reach out or download my
-            resume for more details.
+          Aspiring management professional with hands-on experience in operations, logistics, and event management. I am skilled in team 
+          leadership, planning, and driving efficiency to achieve impactful results.
           </p>
         </div>
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />

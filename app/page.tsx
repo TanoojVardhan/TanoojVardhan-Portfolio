@@ -31,13 +31,13 @@ export default function Home() {
         quantity={100}
       />
       <h1 className="py-3.5 px-0.5 z-10 text-4xl text-transparent duration-1000 bg-white cursor-default text-edge-outline animate-title font-display sm:text-6xl md:text-8xl whitespace-nowrap bg-clip-text py-3.5 px-0.5">
-        Tanooj Vardhan
+        Gantasala Tanooj Vardhan
       </h1>
       <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
       <div className="my-10 text-center animate-fade-in max-w-2xl">
         <p className="text-sm text-zinc-400 mb-6">
-          Results-driven professional with expertise in operations and logistics. Currently pursuing a Bachelor of
-          Technology in Artificial Intelligence and Machine Learning at GITAM University.
+        Aspiring management professional with hands-on experience in operations, logistics, and event management. I am skilled in team 
+        leadership, planning, and driving efficiency to achieve impactful results.
         </p>
         
         <div className="flex flex-wrap justify-center gap-4 mt-6">

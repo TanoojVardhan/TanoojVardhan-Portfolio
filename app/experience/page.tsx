@@ -16,6 +16,26 @@ export default function Experience() {
       ],
     },
     {
+      title: "Volunteer - Inc42 Media (Griffin Event)",
+      period: "August 2025",
+      description: [
+        "Volunteered for Inc42 Media at the Griffin event (a sub-club of Inc42)",
+        "Supported event logistics for a conference featuring top entrepreneurs with the Chief Minister of Andhra Pradesh, Mr. Chandra Babu Naidu, and MP Sri Bharat (Visakhapatnam constituency)"
+      ],
+    },
+    {
+      title: "Photographer and Video Editor",
+      organization: "Entrepreneurs Club",
+      period: "2023 - Present",
+      description: [
+        "Responsible for capturing and editing visual content for club events and initiatives."
+      ],
+      skills: [
+        "Proficient in photography techniques and video editing software (e.g., Davinci Resolve, Lightroom).",
+        "Skilled in storytelling through visuals to enhance event promotion and engagement."
+      ],
+    },
+    {
       title: "EMI LEDHU (FIRM)",
       period: "Oct 2023 – FEB 2024",
       description: [
@@ -60,11 +80,18 @@ export default function Experience() {
     },
   ];
 
-  const education = {
-    institution: "Gandhi Institute of Technology and Management, Visakhapatnam, India",
-    degree: "Bachelors in Artificial Intelligence and Machine Learning",
-    period: "2021 - 2025",
-  };
+  const education = [
+    {
+      institution: "Gandhi Institute of Technology and Management, Visakhapatnam, India",
+      degree: "Bachelors in Artificial Intelligence and Machine Learning",
+      period: "2021 - 2025",
+    },
+    {
+      institution: "Gandhi Institute of Technology and Management, Visakhapatnam, India",
+      degree: "MBA",
+      period: "2025 - 2027 (Pursuing)",
+    },
+  ];
 
   const skills = {
     technical: ["React JS", "Next JS", "HTML", "CSS", "C", "Python", "Java", "JavaScript"],
@@ -125,9 +152,13 @@ export default function Experience() {
             <Card>
               <article className="p-4 md:p-8">
                 <h2 className="text-2xl font-bold mb-2 text-zinc-100">Education</h2>
-                <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white">{education.institution}</h3>
-                <p className="text-zinc-300 group-hover:text-zinc-100">{education.degree}</p>
-                <p className="text-zinc-400 group-hover:text-zinc-300">{education.period}</p>
+                {education.map((edu, idx) => (
+                  <div key={idx} className="mb-4">
+                    <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white">{edu.institution}</h3>
+                    <p className="text-zinc-300 group-hover:text-zinc-100">{edu.degree}</p>
+                    <p className="text-zinc-400 group-hover:text-zinc-300">{edu.period}</p>
+                  </div>
+                ))}
               </article>
             </Card>
           </div>
@@ -191,15 +222,33 @@ export default function Experience() {
               <Card key={idx}>
                 <article className="p-4 md:p-8">
                   <div className="flex justify-between items-center mb-2">
-                    <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white">{exp.title}</h3>
-                    <span className="text-xs text-zinc-500">{exp.period}</span>
+                    <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white">
+                      {exp.title}{exp.organization ? ` at ${exp.organization}` : ''}
+                    </h3>
+                    <span className="text-xs text-zinc-500">{exp.period || exp.duration}</span>
                   </div>
                   <div className="leading-relaxed text-zinc-400 group-hover:text-zinc-300">
                     <ul className="list-disc pl-5">
-                      {exp.description.map((item, i) => (
+                      {(Array.isArray(exp.description) ? exp.description : [exp.description]).map((item, i) => (
                         <li key={i}>{item}</li>
                       ))}
                     </ul>
+                    {exp.skills && (
+                      <>
+                        <h4 className="mt-4 text-sm font-semibold text-zinc-300">Skills:</h4>
+                        <ul className="list-disc pl-5">
+                          {exp.skills.map((skill, i) => (
+                            <li key={i} className="text-sm">{skill}</li>
+                          ))}
+                        </ul>
+                      </>
+                    )}
+                    {exp.volunteering && (
+                      <div className="mt-4 p-3 bg-zinc-800/30 rounded border-l-4 border-blue-500">
+                        <h4 className="text-sm font-semibold text-zinc-200 mb-2">Notable Volunteering:</h4>
+                        <p className="text-sm text-zinc-300">{exp.volunteering}</p>
+                      </div>
+                    )}
                   </div>
                 </article>
               </Card>
