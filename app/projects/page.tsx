@@ -90,7 +90,7 @@ export default function ProjectsPage() {
             A collection of my personal and academic projects.
           </p>
         </div>
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-full h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2">
           <Card>
@@ -165,7 +165,7 @@ export default function ProjectsPage() {
           </div>
         </div>
         
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden w-full h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 animate-fade-in" style={{ animationDelay: "600ms" }}>
           {remaining.map((project, idx) => (

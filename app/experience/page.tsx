@@ -144,7 +144,7 @@ export default function Experience() {
             My professional background and leadership journey.
           </p>
         </div>
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         {/* Education section */}
         <section>
@@ -214,7 +214,7 @@ export default function Experience() {
         </div>
 
         {/* Additional Professional Experience */}
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         <section>
           <h2 className="text-2xl font-bold mb-6 text-zinc-100">Additional Professional Experience</h2>
           <div className="grid grid-cols-1 gap-4">
@@ -251,7 +251,7 @@ export default function Experience() {
         </section>
 
         {/* Remaining College Experiences */}
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
         <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 animate-fade-in animate-delay-600">
           {remaining.map((exp, idx) => (
@@ -274,7 +274,7 @@ export default function Experience() {
         </div>
 
         {/* Skills section */}
-        <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
+        <div className="hidden h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
         <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 animate-fade-in animate-delay-800">
           <Card>
