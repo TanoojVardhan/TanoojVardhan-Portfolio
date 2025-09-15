@@ -193,7 +193,7 @@ export default function Experience() {
           <div className="flex flex-col w-full gap-8 mx-auto border-t border-gray-900/10 lg:mx-0 lg:border-t-0">
             {[top2, top3].map((exp, idx) => (
               <Card key={idx}>
-                <article className="relative w-full h-full p-4 md:p-8 animate-fade-in" style={{ animationDelay: `${(idx + 1) * 200}ms` }}>
+                <article className={`relative w-full h-full p-4 md:p-8 animate-fade-in ${idx === 0 ? 'animate-delay-200' : 'animate-delay-400'}`}>
                   <div className="flex justify-between items-center">
                     <h2 className="mt-2 text-xl font-bold text-zinc-100 group-hover:text-white">
                       {exp.title}
@@ -225,7 +225,7 @@ export default function Experience() {
                     <h3 className="text-xl font-bold text-zinc-100 group-hover:text-white">
                       {exp.title}{exp.organization ? ` at ${exp.organization}` : ''}
                     </h3>
-                    <span className="text-xs text-zinc-500">{exp.period || exp.duration}</span>
+                    <span className="text-xs text-zinc-500">{exp.period}</span>
                   </div>
                   <div className="leading-relaxed text-zinc-400 group-hover:text-zinc-300">
                     <ul className="list-disc pl-5">
@@ -243,12 +243,6 @@ export default function Experience() {
                         </ul>
                       </>
                     )}
-                    {exp.volunteering && (
-                      <div className="mt-4 p-3 bg-zinc-800/30 rounded border-l-4 border-blue-500">
-                        <h4 className="text-sm font-semibold text-zinc-200 mb-2">Notable Volunteering:</h4>
-                        <p className="text-sm text-zinc-300">{exp.volunteering}</p>
-                      </div>
-                    )}
                   </div>
                 </article>
               </Card>
@@ -259,7 +253,7 @@ export default function Experience() {
         {/* Remaining College Experiences */}
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-left bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
 
-        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 animate-fade-in" style={{ animationDelay: "600ms" }}>
+        <div className="grid grid-cols-1 gap-4 mx-auto lg:mx-0 md:grid-cols-2 animate-fade-in animate-delay-600">
           {remaining.map((exp, idx) => (
             <Card key={idx}>
               <article className="relative w-full h-full p-4 md:p-8">
@@ -282,7 +276,7 @@ export default function Experience() {
         {/* Skills section */}
         <div className="hidden w-screen h-px animate-glow md:block animate-fade-right bg-gradient-to-r from-zinc-300/0 via-zinc-300/50 to-zinc-300/0" />
         
-        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 animate-fade-in" style={{ animationDelay: "800ms" }}>
+        <div className="grid grid-cols-1 gap-8 mx-auto lg:grid-cols-2 animate-fade-in animate-delay-800">
           <Card>
             <article className="p-4 md:p-8">
               <h2 className="text-xl font-bold mb-4 text-zinc-100 group-hover:text-white">Technical Skills</h2>

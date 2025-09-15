@@ -8,3 +8,19 @@
 .glow-text {
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animate-delay-800 {
+  animation-delay: 800ms;
+}
