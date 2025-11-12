@@ -83,7 +83,7 @@ export default function Experience() {
   const education = [
     {
       institution: "Gandhi Institute of Technology and Management, Visakhapatnam, India",
-      degree: "Bachelors in Artificial Intelligence and Machine Learning",
+      degree: "Bachelor of Technology (BTech – Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning",
       period: "2021 - 2025",
     },
     {
@@ -306,4 +306,5 @@ export default function Experience() {
       </div>
     </div>
   );
+
 }
